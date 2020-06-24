@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8A79990D-0D15-4672-9016-C504F1EA46ED}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DAL</RootNamespace>
+    <AssemblyName>DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BCrypt.Net">
+      <HintPath>..\MunicipalArchive\bin\Debug\BCrypt.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PersianDateTime, Version=1.1.5082.36395, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PersianDateTime.1.1.5082.36395\lib\net40\PersianDateTime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\DFile.cs" />
+    <Compile Include="Class\DFilePerson.cs" />
+    <Compile Include="Class\DFilePlaque.cs" />
+    <Compile Include="Class\DPlaque.cs" />
+    <Compile Include="Class\DFileType.cs" />
+    <Compile Include="Class\DPerson.cs" />
+    <Compile Include="Class\DVersion.cs" />
+    <Compile Include="Class\DLicense.cs" />
+    <Compile Include="Class\DUser.cs" />
+    <Compile Include="Class\DUserLogin.cs" />
+    <Compile Include="Class\DViolation.cs" />
+    <Compile Include="Class\Globals.cs" />
+    <Compile Include="Class\MunicipalArchiveDbChanges.cs" />
+    <Compile Include="Class\MunicipalArchiveDbConfiguration.cs" />
+    <Compile Include="MunicipalArchiveModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MunicipalArchiveModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MunicipalArchiveModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MunicipalArchiveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MunicipalArchiveModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MunicipalArchiveModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tblAppVersion.cs">
+      <DependentUpon>MunicipalArchiveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblFile.cs">
+      <DependentUpon>MunicipalArchiveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblFilePerson.cs">
+      <DependentUpon>MunicipalArchiveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblFilePlaque.cs">
+      <DependentUpon>MunicipalArchiveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblFileType.cs">
+      <DependentUpon>MunicipalArchiveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblLicense.cs">
+      <DependentUpon>MunicipalArchiveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPerson.cs">
+      <DependentUpon>MunicipalArchiveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPlaque.cs">
+      <DependentUpon>MunicipalArchiveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPostType.cs">
+      <DependentUpon>MunicipalArchiveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSecurityAccess.cs">
+      <DependentUpon>MunicipalArchiveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSecurityQuestion.cs">
+      <DependentUpon>MunicipalArchiveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSundry.cs">
+      <DependentUpon>MunicipalArchiveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblUser.cs">
+      <DependentUpon>MunicipalArchiveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblViolation.cs">
+      <DependentUpon>MunicipalArchiveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="viewAll.cs">
+      <DependentUpon>MunicipalArchiveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="viewFilePerson.cs">
+      <DependentUpon>MunicipalArchiveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="viewFilePlaque.cs">
+      <DependentUpon>MunicipalArchiveModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="MunicipalArchiveModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MunicipalArchiveModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="MunicipalArchiveModel.edmx.diagram">
+      <DependentUpon>MunicipalArchiveModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MunicipalArchiveModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MunicipalArchiveModel.edmx</DependentUpon>
+      <LastGenOutput>MunicipalArchiveModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="MunicipalArchiveModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MunicipalArchiveModel.edmx</DependentUpon>
+      <LastGenOutput>MunicipalArchiveModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

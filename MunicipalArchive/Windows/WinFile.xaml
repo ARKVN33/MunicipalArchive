@@ -1,0 +1,133 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:persianDateControls="clr-namespace:Arash.PersianDateControls;assembly=PersianDateControls" x:Class="MunicipalArchive.Windows.WinFile"
+        mc:Ignorable="d"
+        Height="720" Width="1280" WindowStartupLocation="CenterScreen" WindowStyle="None" FontSize="20" ResizeMode="NoResize" FontFamily="B Nazanin" Loaded="Window_Loaded" BorderThickness="2" BorderBrush="#FF192D6E" >
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard>
+                <Storyboard >
+                    <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:2" FillBehavior="HoldEnd"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+
+    <Grid FlowDirection="RightToLeft" Background="#FFEEEEF2">
+        <Rectangle Stroke="#FF192D6E" StrokeThickness="0" MouseDown="DragMove" Fill="#FFEEEEF2" Height="30" VerticalAlignment="Top" d:IsLocked="True"/>
+        <Label x:Name="LblTitle" Content="ثبت اطلاعات پرونده" FontSize="22" FontWeight="Bold" Margin="0" VerticalAlignment="Top" MouseDown="DragMove" Style="{DynamicResource LabelStyle1}" Height="30" HorizontalContentAlignment="Center" d:IsLocked="True"/>
+        <Button x:Name="BtnClose" Content="×" Width="35" Height="30" FontSize="22" FontFamily="Arial" Click="Close" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource ButtonStyle2}" d:IsLocked="True"/>
+        <Button x:Name="BtnMinimize" Content="-" Margin="35,0,0,0" Width="35" Height="30" FontSize="27" FontFamily="Arial" Click="Minimize" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource ButtonStyle3}" d:IsLocked="True"/>
+        <Border BorderBrush="#FF192D6E" BorderThickness="2" Margin="10,35,10,10" CornerRadius="10" d:IsLocked="True"/>
+        <GroupBox Header="انتخاب مالک/ مالکان" Margin="20,35,0,0" Height="220" VerticalAlignment="Top" BorderBrush="#FF192D6E" HorizontalAlignment="Left" Width="425"/>
+        <GroupBox Header="کد نوسازی" Margin="21,250,0,0" Height="100" VerticalAlignment="Top" BorderBrush="#FF192D6E" HorizontalAlignment="Left" Width="676"/>
+        <GroupBox Header="پرونده" Margin="702,35,0,0" Height="175" VerticalAlignment="Top" BorderBrush="#FF192D6E" HorizontalAlignment="Left" Width="554"/>
+        <GroupBox Header="انتخاب پلاک ثبتی" Margin="450,35,0,0" Height="220" VerticalAlignment="Top" BorderBrush="#FF192D6E" HorizontalAlignment="Left" Width="247"/>
+        <GroupBox Header="سایر" Margin="702,205,0,0" Height="145" VerticalAlignment="Top" BorderBrush="#FF192D6E" HorizontalAlignment="Left" Width="554"/>
+        <Rectangle Height="30" Margin="711,65,0,0" Stroke="#FF192D6E" VerticalAlignment="Top" HorizontalAlignment="Left" Width="236"/>
+
+
+        <Label Content="ش.مارلیک مادر:" Margin="711,65,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Style="{DynamicResource LabelStyle1}"/>
+        <Label x:Name="LblMarlik" Margin="819,65,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="DarkBlue" FontWeight="Bold" Width="128" Style="{DynamicResource LabelStyle1}"/>
+        <Label Content="نوع پرونده:" HorizontalAlignment="Left" Margin="710,100,0,0" VerticalAlignment="Top" Height="30" Style="{DynamicResource LabelStyle1}" />
+        <Label Content="ش.کلاسه:" HorizontalAlignment="Left" Margin="714,135,0,0" VerticalAlignment="Top" Height="30" Style="{DynamicResource LabelStyle1}" />
+        <Label Content="/ سال:" HorizontalAlignment="Left" Margin="883,135,0,0" VerticalAlignment="Top" Height="30" Style="{DynamicResource LabelStyle1}" />
+        <Label Content="ش.پروانه:" HorizontalAlignment="Left" Margin="718,170,0,0" VerticalAlignment="Top" Height="30" Style="{DynamicResource LabelStyle1}" />
+        <Label Content="/ سال:" HorizontalAlignment="Left" Margin="883,170,0,0" VerticalAlignment="Top" Height="30" Style="{DynamicResource LabelStyle1}" />
+        <Label Content="ش.مارلیک:" HorizontalAlignment="Left" Margin="981,65,0,0" VerticalAlignment="Top" Height="30" Style="{DynamicResource LabelStyle1}" />
+        <Label Content="ش.رأی:" HorizontalAlignment="Left" Margin="1002,135,0,0" VerticalAlignment="Top" Height="30" Style="{DynamicResource LabelStyle1}" />
+        <Label Content="نوع تخلف:" HorizontalAlignment="Left" Margin="987,100,0,0" VerticalAlignment="Top" Height="30" Style="{DynamicResource LabelStyle1}" />
+        <Label Content="موجود در بایگانی:" HorizontalAlignment="Left" Margin="1060,171,0,0" VerticalAlignment="Top" Height="30" Style="{DynamicResource LabelStyle1}" />
+        <Label Content="منطقه" HorizontalAlignment="Left" Margin="576,280,0,0" VerticalAlignment="Top" Height="30" Style="{DynamicResource LabelStyle1}" />
+        <Label Content="ناحیه" HorizontalAlignment="Left" Margin="467,280,0,0" VerticalAlignment="Top" Height="30" Style="{DynamicResource LabelStyle1}" />
+        <Label Content="محله" HorizontalAlignment="Left" Margin="358,280,0,0" VerticalAlignment="Top" Height="30" Style="{DynamicResource LabelStyle1}" />
+        <Label Content="بلوک" HorizontalAlignment="Left" Margin="249,280,0,0" VerticalAlignment="Top" Height="30" Style="{DynamicResource LabelStyle1}" />
+        <Label Content="ملک" HorizontalAlignment="Left" Margin="140,280,0,0" VerticalAlignment="Top" Height="30" Style="{DynamicResource LabelStyle1}" />
+        <Label Content="ردیف" HorizontalAlignment="Left" Margin="31,280,0,0" VerticalAlignment="Top" Height="30" Style="{DynamicResource LabelStyle1}" />
+        <Label Content="تاریخ ثبت:" HorizontalAlignment="Left" Margin="715,234,0,0" VerticalAlignment="Top" Height="30" Style="{DynamicResource LabelStyle1}" />
+        <Label Content="کد پستی:" HorizontalAlignment="Left" Margin="1014,233,0,0" VerticalAlignment="Top" Height="30" Style="{DynamicResource LabelStyle1}" />
+        <Label Content="آدرس:" HorizontalAlignment="Left" Margin="739,269,0,0" VerticalAlignment="Top" Height="30" Style="{DynamicResource LabelStyle1}" />
+        <Label Content="توضیحات:" HorizontalAlignment="Left" Margin="718,299,0,0" VerticalAlignment="Top" Height="30" Style="{DynamicResource LabelStyle1}" />
+        <Label Content="جست و جو:" HorizontalAlignment="Left" Margin="21,631,0,0" Height="30" VerticalAlignment="Top" Style="{DynamicResource LabelStyle1}" />
+        <TextBox x:Name="TxtFileNum" HorizontalAlignment="Left" Height="30" Margin="790,135,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="93" Style="{DynamicResource TextBoxStyle1}" TabIndex="8" MaxLength="9" PreviewTextInput="NumberInput" CommandManager.PreviewExecuted="DisablePaste"/>
+        <TextBox x:Name="TxtFileYear" HorizontalAlignment="Left" Height="30" Margin="931,135,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="45" Style="{DynamicResource TextBoxStyle1}" TabIndex="9" MaxLength="4" PreviewTextInput="NumberInput" CommandManager.PreviewExecuted="DisablePaste"/>
+        <TextBox x:Name="TxtPermitNum" HorizontalAlignment="Left" Height="30" Margin="790,170,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="93" Style="{DynamicResource TextBoxStyle1}" TabIndex="10" MaxLength="9" PreviewTextInput="NumberInput" CommandManager.PreviewExecuted="DisablePaste"/>
+        <TextBox x:Name="TxtPermitYear" HorizontalAlignment="Left" Height="30" Margin="931,170,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="45" Style="{DynamicResource TextBoxStyle1}" TabIndex="11" MaxLength="4" PreviewTextInput="NumberInput" CommandManager.PreviewExecuted="DisablePaste"/>
+        <TextBox x:Name="TxtMarlik" HorizontalAlignment="Left" Height="30" Margin="1064,65,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="182" Style="{DynamicResource TextBoxStyle1}" TabIndex="12" MaxLength="9" PreviewTextInput="NumberInput" CommandManager.PreviewExecuted="DisablePaste"/>
+        <TextBox x:Name="TxtVoteNum" HorizontalAlignment="Left" Height="30" Margin="1064,135,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="182" Style="{DynamicResource TextBoxStyle1}" TabIndex="15" MaxLength="10" />
+        <TextBox x:Name="TxtMantaghe" HorizontalAlignment="Left" Height="30" Margin="576,310,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="110" Style="{DynamicResource TextBoxStyle1}" TabIndex="16" MaxLength="9" PreviewTextInput="NumberInput" CommandManager.PreviewExecuted="DisablePaste"/>
+        <TextBox x:Name="TxtNahie" Height="30" Margin="467,310,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Style="{DynamicResource TextBoxStyle1}" TabIndex="17" MaxLength="9" HorizontalAlignment="Left" Width="110" PreviewTextInput="NumberInput" CommandManager.PreviewExecuted="DisablePaste"/>
+        <TextBox x:Name="TxtMahaleh" HorizontalAlignment="Left" Height="30" Margin="358,310,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="110" Style="{DynamicResource TextBoxStyle1}" TabIndex="18" MaxLength="9" PreviewTextInput="NumberInput" CommandManager.PreviewExecuted="DisablePaste"/>
+        <TextBox x:Name="TxtBlock" HorizontalAlignment="Left" Height="30" Margin="249,310,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="110" Style="{DynamicResource TextBoxStyle1}" TabIndex="19" MaxLength="9" PreviewTextInput="NumberInput" CommandManager.PreviewExecuted="DisablePaste"/>
+        <TextBox x:Name="TxtMelk" HorizontalAlignment="Left" Height="30" Margin="140,310,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="110" Style="{DynamicResource TextBoxStyle1}" TabIndex="20" MaxLength="9" PreviewTextInput="NumberInput" CommandManager.PreviewExecuted="DisablePaste"/>
+        <TextBox x:Name="TxtRadif" Height="30" Margin="31,310,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Style="{DynamicResource TextBoxStyle1}" TabIndex="21" MaxLength="9" HorizontalAlignment="Left" Width="110" PreviewTextInput="NumberInput" CommandManager.PreviewExecuted="DisablePaste"/>
+        <persianDateControls:PersianDatePicker x:Name="TxtDate" Margin="794,234,0,0" VerticalAlignment="Top" Height="30" Width="186" Style="{DynamicResource PersianDatePickerStyle1}" PreviewTextInput="DateInput" CommandManager.PreviewExecuted="DisablePasteDate" IsEnabled="False" HorizontalAlignment="Left"/>
+        <TextBox x:Name="TxtPostalCode" HorizontalAlignment="Left" Height="30" Margin="1089,234,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="157" Style="{DynamicResource TextBoxStyle1}" TabIndex="22" MaxLength="10" PreviewTextInput="NumberInput" CommandManager.PreviewExecuted="DisablePaste"/>
+        <TextBox x:Name="TxtAddress" HorizontalAlignment="Left" Height="30" Margin="794,269,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="452" Style="{DynamicResource TextBoxStyle1}" TabIndex="23" MaxLength="200" />
+        <TextBox x:Name="TxtDescription" HorizontalAlignment="Left" Height="36" Margin="794,304,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="452" Style="{DynamicResource TextBoxStyle1}" TabIndex="17" MaxLength="300" />
+        <TextBox x:Name="TxtSearch" Height="30" Margin="110,631,20,0" TextWrapping="Wrap"  VerticalAlignment="Top" Style="{DynamicResource TextBoxStyle1}" TabIndex="0" MaxLength="200" TextChanged="TxtSearch_TextChanged" />
+        <Button x:Name="BtnSelectPerson" Content="انتخاب" Margin="31,215,0,0" Style="{DynamicResource ButtonStyle1}" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="199" Click="BtnSelectPerson_Click" TabIndex="1"/>
+        <Button x:Name="BtnDeletePerson" Content="حذف" Margin="235,215,0,0" Style="{DynamicResource ButtonStyle1}" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Click="BtnDeletePerson_Click" TabIndex="2" />
+        <Button x:Name="BtnSelectPlaque" Content="انتخاب" Margin="461,215,0,0" Style="{DynamicResource ButtonStyle1}" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="110" Click="BtnSelectPlaque_Click" TabIndex="3"/>
+        <Button x:Name="BtnDeletePlaque" Content="حذف" Margin="576,215,0,0" Style="{DynamicResource ButtonStyle1}" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="110" Click="BtnDeletePlaque_Click" TabIndex="4" />
+        <Button x:Name="BtnSelectMainFile" Content="+" FontWeight="Bold" FontFamily="Times New Roman" FontSize="25" ToolTip="ثبت جدید" Margin="946,65,0,0" Style="{DynamicResource ButtonStyle1}" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="30" Click="BtnSelectMainFile_Click" TabIndex="5"/>
+        <Button x:Name="BtnSelectFileType" Content="+" FontWeight="Bold" FontFamily="Times New Roman" FontSize="25" ToolTip="ثبت جدید" Margin="946,100,0,0" Style="{DynamicResource ButtonStyle1}" Height="30" VerticalAlignment="Top" Click="BtnSelectFileType_Click" HorizontalAlignment="Left" Width="30" TabIndex="7"/>
+        <Button x:Name="BtnSelectViolation" Content="+" FontWeight="Bold" FontFamily="Times New Roman" FontSize="25" ToolTip="ثبت جدید" Margin="1216,100,0,0" Style="{DynamicResource ButtonStyle1}" HorizontalAlignment="Left" Width="30" Height="30" VerticalAlignment="Top" Click="BtnSelectViolation_Click" TabIndex="14"/>
+        <Button x:Name="BtnAdd" Content="ثبت" Margin="390,666,0,0" Style="{DynamicResource ButtonStyle1}" Click="BtnAdd_Click" HorizontalAlignment="Left" Width="120" IsDefault="True" TabIndex="25" Height="30" VerticalAlignment="Top" />
+        <Button x:Name="BtnEdit" Content="ویرایش" Margin="515,666,0,0" Style="{DynamicResource ButtonStyle1}"   HorizontalAlignment="Left" Width="120" TabIndex="26" Height="30" VerticalAlignment="Top" Click="BtnEdit_Click"/>
+        <Button x:Name="BtnDelete" Content="حذف" Margin="640,666,0,0" Style="{DynamicResource ButtonStyle1}"   Height="30" VerticalAlignment="Top" TabIndex="27" HorizontalAlignment="Left" Width="120" Click="BtnDelete_Click"/>
+        <Button x:Name="BtnNew" Content="جدید" Margin="765,666,391,0" Style="{DynamicResource ButtonStyle1}" Click="BtnNew_Click" TabIndex="28" Height="30" VerticalAlignment="Top" />
+        <ComboBox x:Name="CboFileType" ItemsSource="{Binding}" DisplayMemberPath="FileType" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="790,100,0,0" VerticalAlignment="Top" Width="157" Height="30" TabIndex="6"/>
+        <ComboBox x:Name="CboViolation" ItemsSource="{Binding}" DisplayMemberPath="Violation" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="1064,100,0,0" VerticalAlignment="Top" Width="153" Height="30" TabIndex="13"/>
+        <DataGrid x:Name="DgdPerson" Margin="30,65,0,0" Style="{DynamicResource DataGridStyle1}" BorderBrush="#FF192D6E" BorderThickness="2" AreRowDetailsFrozen="True" IsReadOnly="True" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FF192D6E" AlternatingRowBackground="#FFF1F4F7" AlternationCount="2" SelectionMode="Single" AutoGenerateColumns="False" KeyboardNavigation.TabNavigation="Once" CanUserSortColumns="False" Height="145" VerticalAlignment="Top" HorizontalAlignment="Left" Width="405">
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="نام" Width="90" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="نام خانوادگی" Width="90" Binding="{Binding Family}"/>
+                <DataGridTextColumn Header="نام پدر" Width="90" Binding="{Binding Father}"/>
+                <DataGridTextColumn Header="کدملی" Width="100" Binding="{Binding Code}"/>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <DataGrid x:Name="DgdPlaque" Margin="461,65,0,0" Style="{DynamicResource DataGridStyle1}" BorderBrush="#FF192D6E" BorderThickness="2" AreRowDetailsFrozen="True" IsReadOnly="True" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FF192D6E" AlternatingRowBackground="#FFF1F4F7" AlternationCount="2" SelectionMode="Single" AutoGenerateColumns="False" KeyboardNavigation.TabNavigation="Once" CanUserSortColumns="False" Height="145" VerticalAlignment="Top" HorizontalAlignment="Left" Width="225">
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="اصلی" Width="50" Binding="{Binding Main}"/>
+                <DataGridTextColumn Header="فرعی" Width="50" Binding="{Binding Secondary}"/>
+                <DataGridTextColumn Header="قطعه" Width="50" Binding="{Binding Part}"/>
+                <DataGridTextColumn Header="توضیح" Width="50" Binding="{Binding Description}"/>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <DataGrid x:Name="DgdFile" Margin="20,355,20,0" Style="{DynamicResource DataGridStyle1}"  BorderBrush="#FF192D6E" BorderThickness="2" AreRowDetailsFrozen="True" IsReadOnly="True" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FF192D6E" AlternatingRowBackground="#FFF1F4F7" AlternationCount="2" SelectionMode="Single" AutoGenerateColumns="False" KeyboardNavigation.TabNavigation="Once" CanUserSortColumns="False" SelectionChanged="DgdFile_SelectionChanged" Height="271" VerticalAlignment="Top" LoadingRow="dataGrid_LoadingRow">
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="نام و نام‌خانوادگی" Width="160" Binding="{Binding FullName}"/>
+                <DataGridTextColumn Header="نام پدر" Width="100" Binding="{Binding FatherName}"/>
+                <DataGridTextColumn Header="کدملی" Width="100" Binding="{Binding Code}"/>
+                <DataGridTextColumn Header="ش.کلاسه" Width="100" Binding="{Binding FileNumber}"/>
+                <DataGridTextColumn Header="ش.پلاک" Width="100" Binding="{Binding PlaqueNum}"/>
+                <DataGridTextColumn Header="ش.پروانه" Width="100" Binding="{Binding PermitNumber}"/>
+                <DataGridTextColumn Header="کد نوسازی" Width="110" Binding="{Binding Reconstruction}"/>
+                <DataGridTextColumn Header="ش.مارلیک" Width="100" Binding="{Binding Marlik}"/>
+                <DataGridTextColumn Header="آدرس" Width="120" Binding="{Binding Address}"/>
+                <DataGridTextColumn Header="توضیحات" Width="180" Binding="{Binding FileDescription}"/>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+        <CheckBox x:Name="CheckBox" IsChecked="True" FlowDirection="LeftToRight"  HorizontalAlignment="Left" Margin="1182,180,0,0" VerticalAlignment="Top" TabIndex="15"/>
+
+
+    </Grid>
+</Window>

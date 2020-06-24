@@ -1,0 +1,93 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:municipalArchive="clr-namespace:MunicipalArchive" x:Class="MunicipalArchive.Windows.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="640" Width="1000" WindowStartupLocation="CenterScreen"  WindowStyle="None" ResizeMode="NoResize" FontSize="20" FontFamily="B Nazanin" Closing="Window_Closing" Loaded="Window_Loaded">
+    <Window.Resources>
+        <Storyboard x:Key="OnMouseLeftButtonDown1">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="BtnMenue">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="BtnBack">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="BtnMenue">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="BtnBack">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="StackPanel">
+                <EasingThicknessKeyFrame KeyTime="0" Value="1000,0,-300,0"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.5" Value="700,0,0,0"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnMouseLeftButtonDown2">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="StackPanel">
+                <EasingThicknessKeyFrame KeyTime="0" Value="700,0,0,0"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.5" Value="1000,0,-300,0"/>
+            </ThicknessAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="BtnBack">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="BtnMenue">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="BtnMenue">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="UIElement.MouseLeftButtonDown" SourceName="BtnMenue">
+            <BeginStoryboard Storyboard="{StaticResource OnMouseLeftButtonDown1}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeftButtonDown" SourceName="BtnBack">
+            <BeginStoryboard x:Name="OnMouseLeftButtonDown2BeginStoryboard" Storyboard="{StaticResource OnMouseLeftButtonDown2}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
+
+    <Grid Background="White" >
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="640" Margin="0" VerticalAlignment="Top" Width="1000"/>
+        <Rectangle Stroke="#FF192D6E" StrokeThickness="1" MouseDown="DragMove" Fill="#FF419FD9" Height="40" VerticalAlignment="Top"/>
+        <Label x:Name="LblTitle" Content="بایگانی" FontSize="22" FontWeight="Bold" Margin="0" VerticalAlignment="Top" MouseDown="DragMove" Style="{DynamicResource LabelStyle1}" Height="40" HorizontalContentAlignment="Center" Foreground="White"/>
+        <Button x:Name="BtnUpClose" Content="×" Width="38" Height="38" FontSize="22" FontFamily="Arial" Click="Close" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource ButtonStyle2}" Margin="1,1,0,0" Foreground="White"/>
+        <Button x:Name="BtnMinimize" Content="-" Margin="39,1,0,0" Width="38" Height="38" FontSize="27" FontFamily="Arial" Click="Minimize" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource ButtonStyle3}" Foreground="White"/>
+        <Grid Margin="0,40,0,0">
+            <municipalArchive:CustomControl1 x:Name="BtnFile" HorizontalAlignment="Left" Margin="339,10,0,0" VerticalAlignment="Top" Height="190" Width="323" SettingText="ثبت اطلاعات پرونده" SettingImageSource="../Icon/File.png" MouseLeftButtonDown="BtnFile_MouseLeftButtonDown"/>
+            <municipalArchive:CustomControl1 x:Name="BtnPerson" HorizontalAlignment="Left" Margin="11,10,0,0" VerticalAlignment="Top" Height="190" Width="323" SettingText="ثبت اطلاعات مالکین" SettingImageSource="../Icon/Person.png" MouseLeftButtonDown="BtnPerson_MouseLeftButtonDown"/>
+            <municipalArchive:CustomControl1 x:Name="BtnSearch" HorizontalAlignment="Left" Margin="667,10,0,0" VerticalAlignment="Top" Height="190" Width="323" SettingText="جست و جو" SettingImageSource="/MunicipalArchive;component/Icon/Search.png" MouseLeftButtonDown="BtnSearch_MouseLeftButtonDown"/>
+        </Grid>
+        <StackPanel x:Name="StackPanel" Margin="1000,0,-300,0" Background="#FFCCCCCC" Width="300">
+            <municipalArchive:CustomControl SettingText="اطلاعات کاربری" SettingImageSource="../Icon/UserInfo.png" Margin="10,40,10,5" Height="50" BorderThickness="0"/>
+            <municipalArchive:CustomControl x:Name="BtnAddUser" SettingText="ثبت کاربر جدید" SettingImageSource="../Icon/AddUser.png" Margin="10,5,10,5" Height="50" MouseLeftButtonDown="BtnAddUser_MouseLeftButtonDown"/>
+            <municipalArchive:CustomControl x:Name="BtnBackUp" SettingText="پشتیبان گیری از اطلاعات" SettingImageSource="../Icon/Backup.png" Margin="10,5,10,5" Height="50" MouseLeftButtonDown="BtnBackUp_MouseLeftButtonDown"/>
+            <municipalArchive:CustomControl x:Name="BtnAutoBackUp" SettingText="مشاهده پشتیبان های خودکار" SettingImageSource="../Icon/RestoreAll.png" Margin="10,5,10,5" Height="50" MouseLeftButtonDown="BtnAutoBackUp_MouseLeftButtonDown"/>
+            <municipalArchive:CustomControl x:Name="BtnRestore" SettingText="بازنشانی فایل پشتیبان" SettingImageSource="../Icon/Restore.png" Margin="10,5,10,5" Height="50" MouseLeftButtonDown="BtnRestore_MouseLeftButtonDown"/>
+            <municipalArchive:CustomControl SettingText="بروزرسانی نرم افزار" SettingImageSource="../Icon/Update.png" Margin="10,5,10,5" Height="50"/>
+            <municipalArchive:CustomControl x:Name="BtnChangePassword" SettingText="تغییر کلمه عبور" SettingImageSource="../Icon/ChangePassword.png" Margin="10,5,10,5" Height="50" MouseLeftButtonDown="BtnChangePassword_MouseLeftButtonDown"/>
+            <municipalArchive:CustomControl SettingText="راهنما" SettingImageSource="../Icon/Help.png" Margin="10,5,10,5" Height="50"/>
+            <municipalArchive:CustomControl SettingText="درباره ی ما" SettingImageSource="../Icon/AboutUs.png" Margin="10,5,10,5" Height="50"/>
+            <municipalArchive:CustomControl x:Name="BtnClose" SettingText="خروج" SettingImageSource="../Icon/Exit.png" Margin="10,5,10,5" Height="50" MouseLeftButtonDown="BtnClose_MouseLeftButtonDown" />
+
+
+
+
+        </StackPanel>
+        <Image x:Name="BtnBack" Source="../Icon/Back.png" Margin="961,13,13,0" Opacity="0" Height="14" VerticalAlignment="Top"/>
+        <Image x:Name="BtnMenue" Source="../Icon/MenuIcon.png" Margin="966,8,10,0" Height="24" VerticalAlignment="Top"/>
+
+
+    </Grid>
+</Window>

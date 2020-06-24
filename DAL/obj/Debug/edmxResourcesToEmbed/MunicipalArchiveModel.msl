@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbMunicipalArchiveModelStoreContainer" CdmEntityContainer="dbMunicipalArchiveEntities">
+    <EntitySetMapping Name="tblAppVersion">
+      <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblAppVersion">
+        <MappingFragment StoreEntitySet="tblAppVersion">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AppVersion" ColumnName="AppVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFile">
+      <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblFile">
+        <MappingFragment StoreEntitySet="tblFile">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MainId" ColumnName="MainId" />
+          <ScalarProperty Name="Marlik" ColumnName="Marlik" />
+          <ScalarProperty Name="FileType_Id" ColumnName="FileType_Id" />
+          <ScalarProperty Name="Violation_Id" ColumnName="Violation_Id" />
+          <ScalarProperty Name="FileNum" ColumnName="FileNum" />
+          <ScalarProperty Name="FileYear" ColumnName="FileYear" />
+          <ScalarProperty Name="PermitNum" ColumnName="PermitNum" />
+          <ScalarProperty Name="PermitYear" ColumnName="PermitYear" />
+          <ScalarProperty Name="Mantaghe" ColumnName="Mantaghe" />
+          <ScalarProperty Name="Nahie" ColumnName="Nahie" />
+          <ScalarProperty Name="Mahaleh" ColumnName="Mahaleh" />
+          <ScalarProperty Name="Block" ColumnName="Block" />
+          <ScalarProperty Name="Melk" ColumnName="Melk" />
+          <ScalarProperty Name="Radif" ColumnName="Radif" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="VoteNum" ColumnName="VoteNum" />
+          <ScalarProperty Name="InArchives" ColumnName="InArchives" />
+          <ScalarProperty Name="Separation" ColumnName="Separation" />
+          <ScalarProperty Name="Aggregation" ColumnName="Aggregation" />
+          <ScalarProperty Name="DateInsert" ColumnName="DateInsert" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFilePerson">
+      <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblFilePerson">
+        <MappingFragment StoreEntitySet="tblFilePerson">
+          <ScalarProperty Name="File_Id" ColumnName="File_Id" />
+          <ScalarProperty Name="Person_Id" ColumnName="Person_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFilePlaque">
+      <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblFilePlaque">
+        <MappingFragment StoreEntitySet="tblFilePlaque">
+          <ScalarProperty Name="File_Id" ColumnName="File_Id" />
+          <ScalarProperty Name="Plaque_Id" ColumnName="Plaque_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFileType">
+      <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblFileType">
+        <MappingFragment StoreEntitySet="tblFileType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FileType" ColumnName="FileType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblLicense">
+      <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblLicense">
+        <MappingFragment StoreEntitySet="tblLicense">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AppLicense" ColumnName="AppLicense" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPerson">
+      <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblPerson">
+        <MappingFragment StoreEntitySet="tblPerson">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Family" ColumnName="Family" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPlaque">
+      <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblPlaque">
+        <MappingFragment StoreEntitySet="tblPlaque">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Main" ColumnName="Main" />
+          <ScalarProperty Name="Secondary" ColumnName="Secondary" />
+          <ScalarProperty Name="Part" ColumnName="Part" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPostType">
+      <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblPostType">
+        <MappingFragment StoreEntitySet="tblPostType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PostType" ColumnName="PostType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSecurityAccess">
+      <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblSecurityAccess">
+        <MappingFragment StoreEntitySet="tblSecurityAccess">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Counter" ColumnName="Counter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSecurityQuestion">
+      <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblSecurityQuestion">
+        <MappingFragment StoreEntitySet="tblSecurityQuestion">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SecurityQuestion" ColumnName="SecurityQuestion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSundry">
+      <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblSundry">
+        <MappingFragment StoreEntitySet="tblSundry">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RegisteredAdminPassword" ColumnName="RegisteredAdminPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUser">
+      <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblUser">
+        <MappingFragment StoreEntitySet="tblUser">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="User_PostType_Id" ColumnName="User_PostType_Id" />
+          <ScalarProperty Name="User_SecurityQuestion_Id" ColumnName="User_SecurityQuestion_Id" />
+          <ScalarProperty Name="UserFirstName" ColumnName="UserFirstName" />
+          <ScalarProperty Name="UserLastName" ColumnName="UserLastName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="UserMobileNumber" ColumnName="UserMobileNumber" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserAnswer" ColumnName="UserAnswer" />
+          <ScalarProperty Name="UserRegistrationDate" ColumnName="UserRegistrationDate" />
+          <ScalarProperty Name="UserImage" ColumnName="UserImage" />
+          <ScalarProperty Name="UserDescription" ColumnName="UserDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblViolation">
+      <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblViolation">
+        <MappingFragment StoreEntitySet="tblViolation">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Violation" ColumnName="Violation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="viewAll">
+      <EntityTypeMapping TypeName="dbMunicipalArchiveModel.viewAll">
+        <MappingFragment StoreEntitySet="viewAll">
+          <ScalarProperty Name="Person_Id" ColumnName="Person_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MainId" ColumnName="MainId" />
+          <ScalarProperty Name="Marlik" ColumnName="Marlik" />
+          <ScalarProperty Name="FileType_Id" ColumnName="FileType_Id" />
+          <ScalarProperty Name="Violation_Id" ColumnName="Violation_Id" />
+          <ScalarProperty Name="FileNum" ColumnName="FileNum" />
+          <ScalarProperty Name="FileYear" ColumnName="FileYear" />
+          <ScalarProperty Name="PermitNum" ColumnName="PermitNum" />
+          <ScalarProperty Name="PermitYear" ColumnName="PermitYear" />
+          <ScalarProperty Name="Mantaghe" ColumnName="Mantaghe" />
+          <ScalarProperty Name="Nahie" ColumnName="Nahie" />
+          <ScalarProperty Name="Mahaleh" ColumnName="Mahaleh" />
+          <ScalarProperty Name="Block" ColumnName="Block" />
+          <ScalarProperty Name="Melk" ColumnName="Melk" />
+          <ScalarProperty Name="Radif" ColumnName="Radif" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="VoteNum" ColumnName="VoteNum" />
+          <ScalarProperty Name="InArchives" ColumnName="InArchives" />
+          <ScalarProperty Name="Separation" ColumnName="Separation" />
+          <ScalarProperty Name="DateInsert" ColumnName="DateInsert" />
+          <ScalarProperty Name="Aggregation" ColumnName="Aggregation" />
+          <ScalarProperty Name="FileDescription" ColumnName="FileDescription" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="PersonDescription" ColumnName="PersonDescription" />
+          <ScalarProperty Name="FileType" ColumnName="FileType" />
+          <ScalarProperty Name="Violation" ColumnName="Violation" />
+          <ScalarProperty Name="Plaque_Id" ColumnName="Plaque_Id" />
+          <ScalarProperty Name="PlaqueDescription" ColumnName="PlaqueDescription" />
+          <ScalarProperty Name="FileNumber" ColumnName="FileNumber" />
+          <ScalarProperty Name="PermitNumber" ColumnName="PermitNumber" />
+          <ScalarProperty Name="Reconstruction" ColumnName="Reconstruction" />
+          <ScalarProperty Name="PlaqueNum" ColumnName="PlaqueNum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="viewFilePerson">
+      <EntityTypeMapping TypeName="dbMunicipalArchiveModel.viewFilePerson">
+        <MappingFragment StoreEntitySet="viewFilePerson">
+          <ScalarProperty Name="File_Id" ColumnName="File_Id" />
+          <ScalarProperty Name="Person_Id" ColumnName="Person_Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Family" ColumnName="Family" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="viewFilePlaque">
+      <EntityTypeMapping TypeName="dbMunicipalArchiveModel.viewFilePlaque">
+        <MappingFragment StoreEntitySet="viewFilePlaque">
+          <ScalarProperty Name="File_Id" ColumnName="File_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Main" ColumnName="Main" />
+          <ScalarProperty Name="Secondary" ColumnName="Secondary" />
+          <ScalarProperty Name="Part" ColumnName="Part" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Plaque_Id" ColumnName="Plaque_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

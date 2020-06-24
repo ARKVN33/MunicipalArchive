@@ -1,0 +1,804 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbMunicipalArchiveModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblAppVersion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="tinyint" Nullable="false" />
+          <Property Name="AppVersion" Type="nvarchar" MaxLength="7" />
+        </EntityType>
+        <EntityType Name="tblFile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MainId" Type="int" />
+          <Property Name="Marlik" Type="int" />
+          <Property Name="FileType_Id" Type="tinyint" />
+          <Property Name="Violation_Id" Type="tinyint" />
+          <Property Name="FileNum" Type="int" />
+          <Property Name="FileYear" Type="smallint" />
+          <Property Name="PermitNum" Type="int" />
+          <Property Name="PermitYear" Type="smallint" />
+          <Property Name="Mantaghe" Type="int" />
+          <Property Name="Nahie" Type="int" />
+          <Property Name="Mahaleh" Type="int" />
+          <Property Name="Block" Type="int" />
+          <Property Name="Melk" Type="int" />
+          <Property Name="Radif" Type="int" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="VoteNum" Type="nvarchar" MaxLength="10" />
+          <Property Name="InArchives" Type="bit" />
+          <Property Name="Separation" Type="int" />
+          <Property Name="Aggregation" Type="int" />
+          <Property Name="DateInsert" Type="nvarchar" MaxLength="10" />
+          <Property Name="Description" Type="nvarchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="tblFilePerson">
+          <Key>
+            <PropertyRef Name="File_Id" />
+            <PropertyRef Name="Person_Id" />
+          </Key>
+          <Property Name="File_Id" Type="int" Nullable="false" />
+          <Property Name="Person_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblFilePlaque">
+          <Key>
+            <PropertyRef Name="File_Id" />
+            <PropertyRef Name="Plaque_Id" />
+          </Key>
+          <Property Name="File_Id" Type="int" Nullable="false" />
+          <Property Name="Plaque_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblFileType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FileType" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblLicense">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AppLicense" Type="nvarchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="tblPerson">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Family" Type="nvarchar" MaxLength="50" />
+          <Property Name="FatherName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Code" Type="nvarchar" MaxLength="10" />
+          <Property Name="Birthday" Type="nvarchar" MaxLength="10" />
+          <Property Name="Sex" Type="tinyint" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="11" />
+          <Property Name="Description" Type="nvarchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="tblPlaque">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Main" Type="int" />
+          <Property Name="Secondary" Type="int" />
+          <Property Name="Part" Type="int" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tblPostType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PostType" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblSecurityAccess">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Time" Type="nvarchar" MaxLength="19" />
+          <Property Name="Counter" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="tblSecurityQuestion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SecurityQuestion" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="tblSundry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="RegisteredAdminPassword" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_PostType_Id" Type="tinyint" />
+          <Property Name="User_SecurityQuestion_Id" Type="tinyint" />
+          <Property Name="UserFirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserLastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserPassword" Type="nvarchar" MaxLength="60" />
+          <Property Name="UserMobileNumber" Type="nvarchar" MaxLength="11" />
+          <Property Name="UserEmail" Type="nvarchar" MaxLength="200" />
+          <Property Name="UserAnswer" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserRegistrationDate" Type="nvarchar" MaxLength="19" />
+          <Property Name="UserImage" Type="nvarchar(max)" />
+          <Property Name="UserDescription" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblViolation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Violation" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'dbMunicipalArchive.dbo.viewAll' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="viewAll">
+          <Key>
+            <PropertyRef Name="FileNumber" />
+            <PropertyRef Name="PermitNumber" />
+            <PropertyRef Name="Reconstruction" />
+            <PropertyRef Name="PlaqueNum" />
+          </Key>
+          <Property Name="Person_Id" Type="int" />
+          <Property Name="Id" Type="int" />
+          <Property Name="MainId" Type="int" />
+          <Property Name="Marlik" Type="int" />
+          <Property Name="FileType_Id" Type="tinyint" />
+          <Property Name="Violation_Id" Type="tinyint" />
+          <Property Name="FileNum" Type="int" />
+          <Property Name="FileYear" Type="smallint" />
+          <Property Name="PermitNum" Type="int" />
+          <Property Name="PermitYear" Type="smallint" />
+          <Property Name="Mantaghe" Type="int" />
+          <Property Name="Nahie" Type="int" />
+          <Property Name="Mahaleh" Type="int" />
+          <Property Name="Block" Type="int" />
+          <Property Name="Melk" Type="int" />
+          <Property Name="Radif" Type="int" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="VoteNum" Type="nvarchar" MaxLength="10" />
+          <Property Name="InArchives" Type="bit" />
+          <Property Name="Separation" Type="int" />
+          <Property Name="DateInsert" Type="nvarchar" MaxLength="10" />
+          <Property Name="Aggregation" Type="int" />
+          <Property Name="FileDescription" Type="nvarchar" MaxLength="4000" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="101" />
+          <Property Name="FatherName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Code" Type="nvarchar" MaxLength="10" />
+          <Property Name="Birthday" Type="nvarchar" MaxLength="10" />
+          <Property Name="Sex" Type="tinyint" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="11" />
+          <Property Name="PersonDescription" Type="nvarchar" MaxLength="300" />
+          <Property Name="FileType" Type="nvarchar" MaxLength="50" />
+          <Property Name="Violation" Type="nvarchar" MaxLength="200" />
+          <Property Name="Plaque_Id" Type="int" />
+          <Property Name="PlaqueDescription" Type="nvarchar" MaxLength="100" />
+          <Property Name="FileNumber" Type="nvarchar" MaxLength="19" Nullable="false" />
+          <Property Name="PermitNumber" Type="nvarchar" MaxLength="19" Nullable="false" />
+          <Property Name="Reconstruction" Type="nvarchar" MaxLength="59" Nullable="false" />
+          <Property Name="PlaqueNum" Type="nvarchar" MaxLength="29" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'dbMunicipalArchive.dbo.viewFilePerson' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="viewFilePerson">
+          <Key>
+            <PropertyRef Name="File_Id" />
+            <PropertyRef Name="Person_Id" />
+          </Key>
+          <Property Name="File_Id" Type="int" Nullable="false" />
+          <Property Name="Person_Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Family" Type="nvarchar" MaxLength="50" />
+          <Property Name="FatherName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Code" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'dbMunicipalArchive.dbo.viewFilePlaque' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="viewFilePlaque">
+          <Key>
+            <PropertyRef Name="File_Id" />
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Plaque_Id" />
+          </Key>
+          <Property Name="File_Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Main" Type="int" />
+          <Property Name="Secondary" Type="int" />
+          <Property Name="Part" Type="int" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="Plaque_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="dbMunicipalArchiveModelStoreContainer">
+          <EntitySet Name="tblAppVersion" EntityType="Self.tblAppVersion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblFile" EntityType="Self.tblFile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblFilePerson" EntityType="Self.tblFilePerson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblFilePlaque" EntityType="Self.tblFilePlaque" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblFileType" EntityType="Self.tblFileType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblLicense" EntityType="Self.tblLicense" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPerson" EntityType="Self.tblPerson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPlaque" EntityType="Self.tblPlaque" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPostType" EntityType="Self.tblPostType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSecurityAccess" EntityType="Self.tblSecurityAccess" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSecurityQuestion" EntityType="Self.tblSecurityQuestion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSundry" EntityType="Self.tblSundry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblViolation" EntityType="Self.tblViolation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="viewAll" EntityType="Self.viewAll" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [viewAll].[Person_Id] AS [Person_Id], 
+    [viewAll].[Id] AS [Id], 
+    [viewAll].[MainId] AS [MainId], 
+    [viewAll].[Marlik] AS [Marlik], 
+    [viewAll].[FileType_Id] AS [FileType_Id], 
+    [viewAll].[Violation_Id] AS [Violation_Id], 
+    [viewAll].[FileNum] AS [FileNum], 
+    [viewAll].[FileYear] AS [FileYear], 
+    [viewAll].[PermitNum] AS [PermitNum], 
+    [viewAll].[PermitYear] AS [PermitYear], 
+    [viewAll].[Mantaghe] AS [Mantaghe], 
+    [viewAll].[Nahie] AS [Nahie], 
+    [viewAll].[Mahaleh] AS [Mahaleh], 
+    [viewAll].[Block] AS [Block], 
+    [viewAll].[Melk] AS [Melk], 
+    [viewAll].[Radif] AS [Radif], 
+    [viewAll].[Address] AS [Address], 
+    [viewAll].[PostalCode] AS [PostalCode], 
+    [viewAll].[VoteNum] AS [VoteNum], 
+    [viewAll].[InArchives] AS [InArchives], 
+    [viewAll].[Separation] AS [Separation], 
+    [viewAll].[DateInsert] AS [DateInsert], 
+    [viewAll].[Aggregation] AS [Aggregation], 
+    [viewAll].[FileDescription] AS [FileDescription], 
+    [viewAll].[FullName] AS [FullName], 
+    [viewAll].[FatherName] AS [FatherName], 
+    [viewAll].[Code] AS [Code], 
+    [viewAll].[Birthday] AS [Birthday], 
+    [viewAll].[Sex] AS [Sex], 
+    [viewAll].[Mobile] AS [Mobile], 
+    [viewAll].[PersonDescription] AS [PersonDescription], 
+    [viewAll].[FileType] AS [FileType], 
+    [viewAll].[Violation] AS [Violation], 
+    [viewAll].[Plaque_Id] AS [Plaque_Id], 
+    [viewAll].[PlaqueDescription] AS [PlaqueDescription], 
+    [viewAll].[FileNumber] AS [FileNumber], 
+    [viewAll].[PermitNumber] AS [PermitNumber], 
+    [viewAll].[Reconstruction] AS [Reconstruction], 
+    [viewAll].[PlaqueNum] AS [PlaqueNum]
+    FROM [dbo].[viewAll] AS [viewAll]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="viewFilePerson" EntityType="Self.viewFilePerson" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [viewFilePerson].[File_Id] AS [File_Id], 
+    [viewFilePerson].[Person_Id] AS [Person_Id], 
+    [viewFilePerson].[Name] AS [Name], 
+    [viewFilePerson].[Family] AS [Family], 
+    [viewFilePerson].[FatherName] AS [FatherName], 
+    [viewFilePerson].[Code] AS [Code]
+    FROM [dbo].[viewFilePerson] AS [viewFilePerson]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="viewFilePlaque" EntityType="Self.viewFilePlaque" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [viewFilePlaque].[File_Id] AS [File_Id], 
+    [viewFilePlaque].[Id] AS [Id], 
+    [viewFilePlaque].[Main] AS [Main], 
+    [viewFilePlaque].[Secondary] AS [Secondary], 
+    [viewFilePlaque].[Part] AS [Part], 
+    [viewFilePlaque].[Description] AS [Description], 
+    [viewFilePlaque].[Plaque_Id] AS [Plaque_Id]
+    FROM [dbo].[viewFilePlaque] AS [viewFilePlaque]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbMunicipalArchiveModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblAppVersion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Byte" Nullable="false" />
+          <Property Name="AppVersion" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblFile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MainId" Type="Int32" />
+          <Property Name="Marlik" Type="Int32" />
+          <Property Name="FileType_Id" Type="Byte" />
+          <Property Name="Violation_Id" Type="Byte" />
+          <Property Name="FileNum" Type="Int32" />
+          <Property Name="FileYear" Type="Int16" />
+          <Property Name="PermitNum" Type="Int32" />
+          <Property Name="PermitYear" Type="Int16" />
+          <Property Name="Mantaghe" Type="Int32" />
+          <Property Name="Nahie" Type="Int32" />
+          <Property Name="Mahaleh" Type="Int32" />
+          <Property Name="Block" Type="Int32" />
+          <Property Name="Melk" Type="Int32" />
+          <Property Name="Radif" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="VoteNum" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="InArchives" Type="Boolean" />
+          <Property Name="Separation" Type="Int32" />
+          <Property Name="Aggregation" Type="Int32" />
+          <Property Name="DateInsert" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblFilePerson">
+          <Key>
+            <PropertyRef Name="File_Id" />
+            <PropertyRef Name="Person_Id" />
+          </Key>
+          <Property Name="File_Id" Type="Int32" Nullable="false" />
+          <Property Name="Person_Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblFilePlaque">
+          <Key>
+            <PropertyRef Name="File_Id" />
+            <PropertyRef Name="Plaque_Id" />
+          </Key>
+          <Property Name="File_Id" Type="Int32" Nullable="false" />
+          <Property Name="Plaque_Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblFileType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FileType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblLicense">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AppLicense" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblPerson">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Family" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Birthday" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Sex" Type="Byte" />
+          <Property Name="Mobile" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblPlaque">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Main" Type="Int32" />
+          <Property Name="Secondary" Type="Int32" />
+          <Property Name="Part" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblPostType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PostType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblSecurityAccess">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Time" Type="String" MaxLength="19" FixedLength="false" Unicode="true" />
+          <Property Name="Counter" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblSecurityQuestion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SecurityQuestion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblSundry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="RegisteredAdminPassword" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_PostType_Id" Type="Byte" />
+          <Property Name="User_SecurityQuestion_Id" Type="Byte" />
+          <Property Name="UserFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserPassword" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="UserMobileNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="UserEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="UserAnswer" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserRegistrationDate" Type="String" MaxLength="19" FixedLength="false" Unicode="true" />
+          <Property Name="UserImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblViolation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Violation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="viewAll">
+          <Key>
+            <PropertyRef Name="FileNumber" />
+            <PropertyRef Name="PermitNumber" />
+            <PropertyRef Name="Reconstruction" />
+            <PropertyRef Name="PlaqueNum" />
+          </Key>
+          <Property Name="Person_Id" Type="Int32" />
+          <Property Name="Id" Type="Int32" />
+          <Property Name="MainId" Type="Int32" />
+          <Property Name="Marlik" Type="Int32" />
+          <Property Name="FileType_Id" Type="Byte" />
+          <Property Name="Violation_Id" Type="Byte" />
+          <Property Name="FileNum" Type="Int32" />
+          <Property Name="FileYear" Type="Int16" />
+          <Property Name="PermitNum" Type="Int32" />
+          <Property Name="PermitYear" Type="Int16" />
+          <Property Name="Mantaghe" Type="Int32" />
+          <Property Name="Nahie" Type="Int32" />
+          <Property Name="Mahaleh" Type="Int32" />
+          <Property Name="Block" Type="Int32" />
+          <Property Name="Melk" Type="Int32" />
+          <Property Name="Radif" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="VoteNum" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="InArchives" Type="Boolean" />
+          <Property Name="Separation" Type="Int32" />
+          <Property Name="DateInsert" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Aggregation" Type="Int32" />
+          <Property Name="FileDescription" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" MaxLength="101" FixedLength="false" Unicode="true" />
+          <Property Name="FatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Birthday" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Sex" Type="Byte" />
+          <Property Name="Mobile" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="PersonDescription" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="FileType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Violation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Plaque_Id" Type="Int32" />
+          <Property Name="PlaqueDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FileNumber" Type="String" MaxLength="19" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PermitNumber" Type="String" MaxLength="19" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Reconstruction" Type="String" MaxLength="59" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PlaqueNum" Type="String" MaxLength="29" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="viewFilePerson">
+          <Key>
+            <PropertyRef Name="File_Id" />
+            <PropertyRef Name="Person_Id" />
+          </Key>
+          <Property Name="File_Id" Type="Int32" Nullable="false" />
+          <Property Name="Person_Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Family" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="viewFilePlaque">
+          <Key>
+            <PropertyRef Name="File_Id" />
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Plaque_Id" />
+          </Key>
+          <Property Name="File_Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Main" Type="Int32" />
+          <Property Name="Secondary" Type="Int32" />
+          <Property Name="Part" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Plaque_Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="dbMunicipalArchiveEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAppVersion" EntityType="Self.tblAppVersion" />
+          <EntitySet Name="tblFile" EntityType="Self.tblFile" />
+          <EntitySet Name="tblFilePerson" EntityType="Self.tblFilePerson" />
+          <EntitySet Name="tblFilePlaque" EntityType="Self.tblFilePlaque" />
+          <EntitySet Name="tblFileType" EntityType="Self.tblFileType" />
+          <EntitySet Name="tblLicense" EntityType="Self.tblLicense" />
+          <EntitySet Name="tblPerson" EntityType="Self.tblPerson" />
+          <EntitySet Name="tblPlaque" EntityType="Self.tblPlaque" />
+          <EntitySet Name="tblPostType" EntityType="Self.tblPostType" />
+          <EntitySet Name="tblSecurityAccess" EntityType="Self.tblSecurityAccess" />
+          <EntitySet Name="tblSecurityQuestion" EntityType="Self.tblSecurityQuestion" />
+          <EntitySet Name="tblSundry" EntityType="Self.tblSundry" />
+          <EntitySet Name="tblUser" EntityType="Self.tblUser" />
+          <EntitySet Name="tblViolation" EntityType="Self.tblViolation" />
+          <EntitySet Name="viewAll" EntityType="Self.viewAll" />
+          <EntitySet Name="viewFilePerson" EntityType="Self.viewFilePerson" />
+          <EntitySet Name="viewFilePlaque" EntityType="Self.viewFilePlaque" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbMunicipalArchiveModelStoreContainer" CdmEntityContainer="dbMunicipalArchiveEntities">
+          <EntitySetMapping Name="tblAppVersion">
+            <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblAppVersion">
+              <MappingFragment StoreEntitySet="tblAppVersion">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AppVersion" ColumnName="AppVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblFile">
+            <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblFile">
+              <MappingFragment StoreEntitySet="tblFile">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MainId" ColumnName="MainId" />
+                <ScalarProperty Name="Marlik" ColumnName="Marlik" />
+                <ScalarProperty Name="FileType_Id" ColumnName="FileType_Id" />
+                <ScalarProperty Name="Violation_Id" ColumnName="Violation_Id" />
+                <ScalarProperty Name="FileNum" ColumnName="FileNum" />
+                <ScalarProperty Name="FileYear" ColumnName="FileYear" />
+                <ScalarProperty Name="PermitNum" ColumnName="PermitNum" />
+                <ScalarProperty Name="PermitYear" ColumnName="PermitYear" />
+                <ScalarProperty Name="Mantaghe" ColumnName="Mantaghe" />
+                <ScalarProperty Name="Nahie" ColumnName="Nahie" />
+                <ScalarProperty Name="Mahaleh" ColumnName="Mahaleh" />
+                <ScalarProperty Name="Block" ColumnName="Block" />
+                <ScalarProperty Name="Melk" ColumnName="Melk" />
+                <ScalarProperty Name="Radif" ColumnName="Radif" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="VoteNum" ColumnName="VoteNum" />
+                <ScalarProperty Name="InArchives" ColumnName="InArchives" />
+                <ScalarProperty Name="Separation" ColumnName="Separation" />
+                <ScalarProperty Name="Aggregation" ColumnName="Aggregation" />
+                <ScalarProperty Name="DateInsert" ColumnName="DateInsert" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblFilePerson">
+            <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblFilePerson">
+              <MappingFragment StoreEntitySet="tblFilePerson">
+                <ScalarProperty Name="File_Id" ColumnName="File_Id" />
+                <ScalarProperty Name="Person_Id" ColumnName="Person_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblFilePlaque">
+            <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblFilePlaque">
+              <MappingFragment StoreEntitySet="tblFilePlaque">
+                <ScalarProperty Name="File_Id" ColumnName="File_Id" />
+                <ScalarProperty Name="Plaque_Id" ColumnName="Plaque_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblFileType">
+            <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblFileType">
+              <MappingFragment StoreEntitySet="tblFileType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FileType" ColumnName="FileType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLicense">
+            <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblLicense">
+              <MappingFragment StoreEntitySet="tblLicense">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AppLicense" ColumnName="AppLicense" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPerson">
+            <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblPerson">
+              <MappingFragment StoreEntitySet="tblPerson">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Family" ColumnName="Family" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPlaque">
+            <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblPlaque">
+              <MappingFragment StoreEntitySet="tblPlaque">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Main" ColumnName="Main" />
+                <ScalarProperty Name="Secondary" ColumnName="Secondary" />
+                <ScalarProperty Name="Part" ColumnName="Part" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPostType">
+            <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblPostType">
+              <MappingFragment StoreEntitySet="tblPostType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PostType" ColumnName="PostType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSecurityAccess">
+            <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblSecurityAccess">
+              <MappingFragment StoreEntitySet="tblSecurityAccess">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Counter" ColumnName="Counter" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSecurityQuestion">
+            <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblSecurityQuestion">
+              <MappingFragment StoreEntitySet="tblSecurityQuestion">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SecurityQuestion" ColumnName="SecurityQuestion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSundry">
+            <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblSundry">
+              <MappingFragment StoreEntitySet="tblSundry">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RegisteredAdminPassword" ColumnName="RegisteredAdminPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUser">
+            <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblUser">
+              <MappingFragment StoreEntitySet="tblUser">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="User_PostType_Id" ColumnName="User_PostType_Id" />
+                <ScalarProperty Name="User_SecurityQuestion_Id" ColumnName="User_SecurityQuestion_Id" />
+                <ScalarProperty Name="UserFirstName" ColumnName="UserFirstName" />
+                <ScalarProperty Name="UserLastName" ColumnName="UserLastName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="UserMobileNumber" ColumnName="UserMobileNumber" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="UserAnswer" ColumnName="UserAnswer" />
+                <ScalarProperty Name="UserRegistrationDate" ColumnName="UserRegistrationDate" />
+                <ScalarProperty Name="UserImage" ColumnName="UserImage" />
+                <ScalarProperty Name="UserDescription" ColumnName="UserDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblViolation">
+            <EntityTypeMapping TypeName="dbMunicipalArchiveModel.tblViolation">
+              <MappingFragment StoreEntitySet="tblViolation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Violation" ColumnName="Violation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="viewAll">
+            <EntityTypeMapping TypeName="dbMunicipalArchiveModel.viewAll">
+              <MappingFragment StoreEntitySet="viewAll">
+                <ScalarProperty Name="Person_Id" ColumnName="Person_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MainId" ColumnName="MainId" />
+                <ScalarProperty Name="Marlik" ColumnName="Marlik" />
+                <ScalarProperty Name="FileType_Id" ColumnName="FileType_Id" />
+                <ScalarProperty Name="Violation_Id" ColumnName="Violation_Id" />
+                <ScalarProperty Name="FileNum" ColumnName="FileNum" />
+                <ScalarProperty Name="FileYear" ColumnName="FileYear" />
+                <ScalarProperty Name="PermitNum" ColumnName="PermitNum" />
+                <ScalarProperty Name="PermitYear" ColumnName="PermitYear" />
+                <ScalarProperty Name="Mantaghe" ColumnName="Mantaghe" />
+                <ScalarProperty Name="Nahie" ColumnName="Nahie" />
+                <ScalarProperty Name="Mahaleh" ColumnName="Mahaleh" />
+                <ScalarProperty Name="Block" ColumnName="Block" />
+                <ScalarProperty Name="Melk" ColumnName="Melk" />
+                <ScalarProperty Name="Radif" ColumnName="Radif" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="VoteNum" ColumnName="VoteNum" />
+                <ScalarProperty Name="InArchives" ColumnName="InArchives" />
+                <ScalarProperty Name="Separation" ColumnName="Separation" />
+                <ScalarProperty Name="DateInsert" ColumnName="DateInsert" />
+                <ScalarProperty Name="Aggregation" ColumnName="Aggregation" />
+                <ScalarProperty Name="FileDescription" ColumnName="FileDescription" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="PersonDescription" ColumnName="PersonDescription" />
+                <ScalarProperty Name="FileType" ColumnName="FileType" />
+                <ScalarProperty Name="Violation" ColumnName="Violation" />
+                <ScalarProperty Name="Plaque_Id" ColumnName="Plaque_Id" />
+                <ScalarProperty Name="PlaqueDescription" ColumnName="PlaqueDescription" />
+                <ScalarProperty Name="FileNumber" ColumnName="FileNumber" />
+                <ScalarProperty Name="PermitNumber" ColumnName="PermitNumber" />
+                <ScalarProperty Name="Reconstruction" ColumnName="Reconstruction" />
+                <ScalarProperty Name="PlaqueNum" ColumnName="PlaqueNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="viewFilePerson">
+            <EntityTypeMapping TypeName="dbMunicipalArchiveModel.viewFilePerson">
+              <MappingFragment StoreEntitySet="viewFilePerson">
+                <ScalarProperty Name="File_Id" ColumnName="File_Id" />
+                <ScalarProperty Name="Person_Id" ColumnName="Person_Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Family" ColumnName="Family" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="viewFilePlaque">
+            <EntityTypeMapping TypeName="dbMunicipalArchiveModel.viewFilePlaque">
+              <MappingFragment StoreEntitySet="viewFilePlaque">
+                <ScalarProperty Name="File_Id" ColumnName="File_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Main" ColumnName="Main" />
+                <ScalarProperty Name="Secondary" ColumnName="Secondary" />
+                <ScalarProperty Name="Part" ColumnName="Part" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Plaque_Id" ColumnName="Plaque_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
